@@ -55,7 +55,13 @@ function playRound(playerSelection, computerSelection) {
   const winner = getWinner(playerSelection, computerSelection);
   score.push(winner);
 
-  console.info(winner ? `${winner} won this round.` : "It's a tie.");
+  if (winner === 'player') {
+    console.log(`You won! ${playerSelection} beats ${computerSelection}`);
+  } else if (winner === 'computer') {
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+  } else {
+    console.log("It's a tie");
+  }
   round++;
 }
 
@@ -68,14 +74,18 @@ function getUserChoice() {
   return prompt("pick from 'rock', 'paper' or 'scissors'");
 }
 
-while (round < 6) {
-  if (round === 5) {
-    getOverAllWinner();
-    console.log('Please reload to play again.');
-    round++;
-  } else {
-    const user = getUserChoice();
-    const computer = getComputerChoice();
-    playRound(user, computer);
+function playGame() {
+  while (round < 6) {
+    if (round === 5) {
+      getOverAllWinner();
+      console.log('Please reload to play again.');
+      round++;
+    } else {
+      const user = getUserChoice();
+      const computer = getComputerChoice();
+      playRound(user, computer);
+    }
   }
 }
+
+playGame();
