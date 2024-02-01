@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  outline: 1px dotted red;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eeedeb;
+  color: #3c3633;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 36px 0;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+header p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+header a {
+  text-decoration: none;
+  color: #637a9f;
+}
+
+.scores .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.player-score,
+.computer-score {
+  height: 300px;
+  width: 300px;
+  background-color: #e8c872;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.weapons {
+  text-align: center;
+  margin: 36px 0;
+}
+
+.weapons button {
+  background-color: #637a9f;
+  color: #fff3cf;
+  width: 120px;
+  padding: 6px 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 6px;
+  margin-top: 18px;
+}
+
+footer {
+  text-align: center;
+  background-color: #3c3633;
+  color: #eeedeb;
+  font-size: 12px;
+  height: 32px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #eeedeb;
+}
+
+footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 6px;
+}

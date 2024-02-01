@@ -4,8 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header>
+      <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <p>
+          by
+          <a
+            href="https://github.com/xgsarah"
+            target="_blank"
+            rel="noopener noreferrer"
+            >xgsarah</a
+          >
+        </p>
+      </div>
+    </header>
+    <div id="game">
+      <section class="scores">
+        <div class="container">
+          <div class="player-score">
+            <div>Player: <span id="score">0</span></div>
+            <div class="image"></div>
+          </div>
+          <div class="computer-score">
+            <div>Computer: <span id="score">0</span></div>
+            <div class="image"></div>
+          </div>
+        </div>
+      </section>
+      <section class="weapons">
+        <div class="container">
+          <h2>Choose your weapon</h2>
+          <div class="weapons-container">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="container">
+        &copy; 2024 xgsarah
+        <a
+          href="https://github.com/xgsarah/rock-paper-scissors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+            width="16"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
