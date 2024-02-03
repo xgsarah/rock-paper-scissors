@@ -46,7 +46,7 @@ header a {
 
 .player-score,
 .computer-score {
-  height: 300px;
+  height: 275px;
   width: 300px;
   background-color: #e8c872;
   text-align: center;
@@ -54,6 +54,10 @@ header a {
   border-radius: 12px;
   padding: 12px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weapons {
@@ -72,6 +76,7 @@ header a {
   cursor: pointer;
   margin-left: 6px;
   margin-top: 18px;
+  font-family: 'Lobster', sans-serif;
 }
 
 footer {

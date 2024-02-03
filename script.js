@@ -52,38 +52,22 @@ function getComputerChoice() {
   return selection[index];
 }
 
-// function getUserChoice() {
-//   return prompt("pick from 'rock', 'paper' or 'scissors'");
-// }
+const playGame = (playerChoice) => {
+  const computerChoice = getComputerChoice();
 
-// function playGame() {
-//   while (round < 6) {
-//     if (round === 5) {
-//       getOverAllWinner();
-//       console.log('Please reload to play again.');
-//       round++;
-//     } else {
-//       const user = getUserChoice();
-//       const computer = getComputerChoice();
-//       playRound(user, computer);
-//     }
-//   }
-// }
+  displayWeapon(playerChoice, 'player');
+  displayWeapon(computerChoice, 'computer');
+  playRound(playerChoice, computerChoice);
+};
 
 const rockButton = document.querySelector('#rock');
-rockButton.addEventListener('click', () => {
-  playRound('rock', getComputerChoice());
-});
+rockButton.addEventListener('click', () => playGame('rock'));
 
 const paperButton = document.querySelector('#paper');
-paperButton.addEventListener('click', () => {
-  playRound('paper', getComputerChoice());
-});
+paperButton.addEventListener('click', () => playGame('paper'));
 
 const scissorsButton = document.querySelector('#scissors');
-scissorsButton.addEventListener('click', () => {
-  playRound('scissors', getComputerChoice());
-});
+scissorsButton.addEventListener('click', () => playGame('scissors'));
 
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
@@ -119,4 +103,19 @@ const displayRound = () => {
   div.textContent = round;
 };
 
-// playGame();
+const displayWeapon = (choice, player) => {
+  const div = document.querySelector(`.${player}-score`);
+  const imgDiv = div.querySelector('.image');
+  const image = imgDiv.getElementsByTagName('img').length
+    ? imgDiv.getElementsByTagName('img')[0]
+    : document.createElement('IMG');
+
+  image.setAttribute('src', `images/${choice}.png`);
+  image.setAttribute('alt', `${choice} Image`);
+
+  image.style.width = '200px';
+  if (player === 'player') {
+    image.style.transform = 'rotateY(180deg)';
+  }
+  imgDiv.appendChild(image);
+};
