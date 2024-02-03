@@ -122,3 +122,10 @@ footer .container {
   display: none;
   font-size: 18px;
 }
+
+.message {
+  max-width: 600px;
+  word-wrap: break-word;
+  display: flex;
+  margin: 0 auto;
+}

@@ -49,15 +49,15 @@ function displayWinnerMessage() {
   div.removeChild(div.querySelector('.container'));
 
   const container = document.createElement('DIV');
-  container.setAttribute('class', 'container');
+  container.setAttribute('class', 'message');
 
   const message = document.createElement('h2');
-  message.textContent =
+  message.innerHTML =
     scores.player > scores.computer
-      ? 'Congratulations! You won!'
+      ? 'Congratulations! Your triumph echoes through the game arena!'
       : scores.player < scores.computer
-      ? 'Computer wins'
-      : "It's a tie";
+      ? "Oops! Tough luck, but remember, there's always a rematch waiting for you!"
+      : "It's a tie. Looks like both contenders are playing hard to get a victory.";
 
   container.appendChild(message);
   div.appendChild(container);
