@@ -20,7 +20,7 @@ body {
 
 header {
   text-align: center;
-  padding: 36px 0;
+  padding: 64px 0;
 }
 
 h1 {
@@ -81,25 +81,19 @@ header a {
 
 footer {
   text-align: center;
-  background-color: #3c3633;
-  color: #eeedeb;
   font-size: 12px;
-  height: 32px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  margin-top: 18px;
 }
 
 footer a {
-  color: #eeedeb;
+  color: #3c3633;
 }
 
 footer .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  gap: 6px;
+  gap: 4px;
 }
 
 .round {
@@ -108,4 +102,23 @@ footer .container {
   margin-bottom: 18px;
   color: #637a9f;
   font-family: 'Lobster', sans-serif;
+}
+
+.reset {
+  display: flex;
+  justify-content: center;
+}
+
+#restart-button {
+  background-color: #637a9f;
+  color: #fff3cf;
+  width: 150px;
+  padding: 6px 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lobster', sans-serif;
+  display: none;
+  font-size: 18px;
 }

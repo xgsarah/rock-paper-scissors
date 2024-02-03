@@ -37,13 +37,48 @@ function getWinner(playerSelection, computerSelection) {
   }
 }
 
+function displayRound() {
+  const div = document.querySelector('#game-round');
+  div.textContent = round;
+}
+
+function displayWinnerMessage() {
+  const scores = getScores();
+
+  const div = document.querySelector('.weapons');
+  div.removeChild(div.querySelector('.container'));
+
+  const container = document.createElement('DIV');
+  container.setAttribute('class', 'container');
+
+  const message = document.createElement('h2');
+  message.textContent =
+    scores.player > scores.computer
+      ? 'Congratulations! You won!'
+      : scores.player < scores.computer
+      ? 'Computer wins'
+      : "It's a tie";
+
+  container.appendChild(message);
+  div.appendChild(container);
+
+  const resetButton = document.querySelector('#restart-button');
+  resetButton.style.display = 'block';
+}
+
 function playRound(playerSelection, computerSelection) {
   const winner = getWinner(playerSelection, computerSelection);
   score.push(winner);
 
+  if (round === 5) {
+    const div = document.querySelector('.round');
+    div.textContent = 'Final Round';
+  } else {
+    displayRound();
+  }
+
   displayScore();
   displayWinner(playerSelection, computerSelection);
-  displayRound();
   round++;
 }
 
@@ -52,13 +87,20 @@ function getComputerChoice() {
   return selection[index];
 }
 
-const playGame = (playerChoice) => {
+function playGame(playerChoice) {
   const computerChoice = getComputerChoice();
 
   displayWeapon(playerChoice, 'player');
   displayWeapon(computerChoice, 'computer');
   playRound(playerChoice, computerChoice);
-};
+
+  if (round > 5) {
+    displayWinnerMessage();
+  }
+}
+
+const restartButton = document.querySelector('#restart-button');
+restartButton.addEventListener('click', () => window.location.reload());
 
 const rockButton = document.querySelector('#rock');
 rockButton.addEventListener('click', () => playGame('rock'));
@@ -72,15 +114,15 @@ scissorsButton.addEventListener('click', () => playGame('scissors'));
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
 
-const displayScore = () => {
+function displayScore() {
   const scores = getScores();
 
   playerScore.textContent = scores.player;
   computerScore.textContent = scores.computer;
   console.log(scores);
-};
+}
 
-const displayWinner = (playerSelection, computerSelection) => {
+function displayWinner(playerSelection, computerSelection) {
   const div = document.querySelector('.weapons');
   const messageContainer = div.querySelector('h2');
 
@@ -96,14 +138,9 @@ const displayWinner = (playerSelection, computerSelection) => {
   }
 
   messageContainer.textContent = message;
-};
+}
 
-const displayRound = () => {
-  const div = document.querySelector('#game-round');
-  div.textContent = round;
-};
-
-const displayWeapon = (choice, player) => {
+function displayWeapon(choice, player) {
   const div = document.querySelector(`.${player}-score`);
   const imgDiv = div.querySelector('.image');
   const image = imgDiv.getElementsByTagName('img').length
@@ -118,4 +155,4 @@ const displayWeapon = (choice, player) => {
     image.style.transform = 'rotateY(180deg)';
   }
   imgDiv.appendChild(image);
-};
+}
